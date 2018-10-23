@@ -9,7 +9,7 @@
     <Grid>
         <DataGrid Name="WordsGrid" Margin="50,100,50,80" Loaded="grid_Loaded" MouseUp="grid_MouseUp" />
         <Button x:Name="btCreate" Content="Button" HorizontalAlignment="Left" Margin="572,49,0,0" VerticalAlignment="Top" Width="75" Click="btCreate_Click"/>
-        <Label x:Name="lbStatusText" Content="her" HorizontalAlignment="Left" Margin="416,49,0,0" VerticalAlignment="Top"  />
+        <Label x:Name="lbStatusText" Content="test" HorizontalAlignment="Left" Margin="416,49,0,0" VerticalAlignment="Top"  />
         <Button x:Name="btCreate1" Content="Button" HorizontalAlignment="Left" Margin="52,49,0,0" VerticalAlignment="Top" Width="75" />
     </Grid>
 </Window>
