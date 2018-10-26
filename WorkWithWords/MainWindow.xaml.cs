@@ -30,7 +30,7 @@ namespace WorkWithWords
         {
             InitializeComponent();
 
-
+           
         }
 
 
@@ -41,7 +41,7 @@ namespace WorkWithWords
             m_sqlCmd = new SQLiteCommand();
 
             dbFileName = "sample.sqlite";
-            lbStatusText.Content = "Disconnected";
+           // lbStatusText.Content = "Disconnected";
             /*List < Words > result = new List<Words>();
 
             result.Add(new Words(1,"яблоко", "Существительное"));
@@ -58,7 +58,7 @@ namespace WorkWithWords
 
         }
 
-        private void btCreate_Click(object sender, RoutedEventArgs e)
+        private void Connetion_Click(object sender, RoutedEventArgs e)
         {
             if (!File.Exists(dbFileName))
                 SQLiteConnection.CreateFile(dbFileName);
@@ -69,16 +69,57 @@ namespace WorkWithWords
                 m_dbConn.Open();
                 m_sqlCmd.Connection = m_dbConn;
 
-                m_sqlCmd.CommandText = "CREATE TABLE IF NOT EXISTS Catalog (id INTEGER PRIMARY KEY AUTOINCREMENT, author TEXT, book TEXT)";
+                m_sqlCmd.CommandText = "CREATE TABLE IF NOT EXISTS Words(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    " word TEXT, part_of_speech TEXT);" + 
+                    " INSERT INTO Words(word, part_of_speech) " + "VALUES ('apple', 'noun');";
+              //  m_sqlCmd.CommandText = "INSERT INTO Words(word TEXT, part_of_speech TEXT)" + "VALUES ('apple', 'noun')";
                 m_sqlCmd.ExecuteNonQuery();
 
-                lbStatusText.Content = "Connected";
+               // lbStatusText.Content = "Connected";
+
             }
             catch (SQLiteException ex)
             {
-                lbStatusText.Content = "Disconnected";
+                //lbStatusText.Content = "Disconnected";
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        private void AddWord_Click(object sender, RoutedEventArgs e)
+        {
+            m_sqlCmd.CommandText = "SELECT * FROM Words;";
+
+        }
+
+        private void DeleteWord_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //private void btCreate1_Click(object sender, RoutedEventArgs e)
+        //{
+        //    SQLiteCommand cmd = m_dbConn.CreateCommand();
+        //    string sql_command = "DROP TABLE IF EXISTS person;"
+        //      + "CREATE TABLE person("
+        //      + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+        //      + "first_name TEXT, "
+        //      + "last_name TEXT, "
+        //      + "sex INTEGER, "
+        //      + "birth_date INTEGER);"
+        //      + "INSERT INTO person(first_name, last_name, sex, birth_date) "
+        //      + "VALUES ('John', 'Doe', 0, strftime('%s', '1979-12-10'));"
+        //      + "INSERT INTO person(first_name, last_name, sex, birth_date) "
+        //      + "VALUES ('Vanessa', 'Maison', 1, strftime('%s', '1977-12-10'));"
+        //      + "INSERT INTO person(first_name, last_name, sex, birth_date) "
+        //      + "VALUES ('Ivan', 'Vasiliev', 0, strftime('%s', '1987-01-06'));"
+        //      + "INSERT INTO person(first_name, last_name, sex, birth_date) "
+        //      + "VALUES ('Kevin', 'Drago', 0, strftime('%s', '1991-06-11'));"
+        //      + "INSERT INTO person(first_name, last_name, sex, birth_date) "
+        //      + "VALUES ('Angel', 'Vasco', 1, strftime('%s', '1987-10-09'));";
+
+
+        //}
+
+
     }
-}
+} 

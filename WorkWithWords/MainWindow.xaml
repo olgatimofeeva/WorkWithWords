@@ -8,8 +8,8 @@
         Title="Work With Words" Height="450" Width="800">
     <Grid>
         <DataGrid Name="WordsGrid" Margin="50,100,50,80" Loaded="grid_Loaded" MouseUp="grid_MouseUp" />
-        <Button x:Name="btCreate" Content="Button" HorizontalAlignment="Left" Margin="572,49,0,0" VerticalAlignment="Top" Width="75" Click="btCreate_Click"/>
-        <Label x:Name="lbStatusText" Content="test" HorizontalAlignment="Left" Margin="416,49,0,0" VerticalAlignment="Top"  />
-        <Button x:Name="btCreate1" Content="Button" HorizontalAlignment="Left" Margin="52,49,0,0" VerticalAlignment="Top" Width="75" />
+        <Button x:Name="Connection" Content="Соеденение с БД" HorizontalAlignment="Left" Margin="572,349,0,0" VerticalAlignment="Top" Width="100" Click="Connetion_Click"/>
+        <Button x:Name="AddWord" Content="Добавить слово" HorizontalAlignment="Left" Margin="100,349,0,0" VerticalAlignment="Top" Width="100" Click="AddWord_Click"/>
+        <Button x:Name="DeleteWord" Content="Удалить слово" HorizontalAlignment="Left" Margin="300,349,0,0" VerticalAlignment="Top" Width="100" Click="DeleteWord_Click"/>
     </Grid>
 </Window>

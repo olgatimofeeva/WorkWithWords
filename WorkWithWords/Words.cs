@@ -19,6 +19,8 @@ namespace WorkWithWords
         public int ID { get; set; }
         public string Word { get; set; }
         public string PartOfSpeech { get; set; }
+
+
     }
 }
  
