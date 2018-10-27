@@ -41,7 +41,33 @@ namespace WorkWithWords
             m_sqlCmd = new SQLiteCommand();
 
             dbFileName = "sample.sqlite";
-           // lbStatusText.Content = "Disconnected";
+
+            if (!File.Exists(dbFileName))
+                SQLiteConnection.CreateFile(dbFileName);
+
+            try
+            {
+                m_dbConn = new SQLiteConnection("Data Source=" + dbFileName + ";Version=3;");
+                m_dbConn.Open();
+                m_sqlCmd.Connection = m_dbConn;
+
+                //m_sqlCmd.CommandText = "CREATE TABLE IF NOT EXISTS Words(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                //    " word TEXT, part_of_speech TEXT);" +
+                //    " INSERT INTO Words(word, part_of_speech) " + "VALUES ('apple', 'noun');";
+                //  m_sqlCmd.CommandText = "INSERT INTO Words(word TEXT, part_of_speech TEXT)" + "VALUES ('apple', 'noun')";
+                m_sqlCmd.ExecuteNonQuery();
+
+                // lbStatusText.Content = "Connected";
+
+            }
+            catch (SQLiteException ex)
+            {
+                //lbStatusText.Content = "Disconnected";
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+
+            // lbStatusText.Content = "Disconnected";
             /*List < Words > result = new List<Words>();
 
             result.Add(new Words(1,"яблоко", "Существительное"));
@@ -60,29 +86,29 @@ namespace WorkWithWords
 
         private void Connetion_Click(object sender, RoutedEventArgs e)
         {
-            if (!File.Exists(dbFileName))
-                SQLiteConnection.CreateFile(dbFileName);
+            //if (!File.Exists(dbFileName))
+            //    SQLiteConnection.CreateFile(dbFileName);
 
-            try
-            {
-                m_dbConn = new SQLiteConnection("Data Source=" + dbFileName + ";Version=3;");
-                m_dbConn.Open();
-                m_sqlCmd.Connection = m_dbConn;
+            //try
+            //{
+            //    m_dbConn = new SQLiteConnection("Data Source=" + dbFileName + ";Version=3;");
+            //    m_dbConn.Open();
+            //    m_sqlCmd.Connection = m_dbConn;
 
-                m_sqlCmd.CommandText = "CREATE TABLE IF NOT EXISTS Words(id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    " word TEXT, part_of_speech TEXT);" + 
-                    " INSERT INTO Words(word, part_of_speech) " + "VALUES ('apple', 'noun');";
-              //  m_sqlCmd.CommandText = "INSERT INTO Words(word TEXT, part_of_speech TEXT)" + "VALUES ('apple', 'noun')";
-                m_sqlCmd.ExecuteNonQuery();
+            //    m_sqlCmd.CommandText = "CREATE TABLE IF NOT EXISTS Words(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+            //        " word TEXT, part_of_speech TEXT);" + 
+            //        " INSERT INTO Words(word, part_of_speech) " + "VALUES ('apple', 'noun');";
+            //  //  m_sqlCmd.CommandText = "INSERT INTO Words(word TEXT, part_of_speech TEXT)" + "VALUES ('apple', 'noun')";
+            //    m_sqlCmd.ExecuteNonQuery();
 
-               // lbStatusText.Content = "Connected";
+            //   // lbStatusText.Content = "Connected";
 
-            }
-            catch (SQLiteException ex)
-            {
-                //lbStatusText.Content = "Disconnected";
-                MessageBox.Show("Error: " + ex.Message);
-            }
+            //}
+            //catch (SQLiteException ex)
+            //{
+            //    //lbStatusText.Content = "Disconnected";
+            //    MessageBox.Show("Error: " + ex.Message);
+            //}
         }
 
         private void AddWord_Click(object sender, RoutedEventArgs e)
