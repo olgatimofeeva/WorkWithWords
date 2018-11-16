@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SQLite">
       <HintPath>lib\System.Data.SQLite.dll</HintPath>
@@ -58,6 +59,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ChildrenAge.cs" />
+    <Compile Include="DBConnection.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="IComplexEntity.cs" />
     <Compile Include="PartOfSpeech.cs" />
     <Compile Include="Specification.cs" />
     <Compile Include="Words.cs" />

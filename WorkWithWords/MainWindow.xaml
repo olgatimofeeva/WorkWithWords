@@ -11,5 +11,7 @@
         <Button x:Name="Connection" Content="Соеденение с БД" HorizontalAlignment="Left" Margin="572,349,0,0" VerticalAlignment="Top" Width="100" Click="Connetion_Click"/>
         <Button x:Name="AddWord" Content="Добавить слово" HorizontalAlignment="Left" Margin="100,349,0,0" VerticalAlignment="Top" Width="100" Click="AddWord_Click"/>
         <Button x:Name="DeleteWord" Content="Удалить слово" HorizontalAlignment="Left" Margin="300,349,0,0" VerticalAlignment="Top" Width="100" Click="DeleteWord_Click"/>
+        <TextBox x:Name="connection" Margin="453,32,100,350"  />
+        
     </Grid>
 </Window>

@@ -8,15 +8,21 @@ namespace WorkWithWords
 {
     class PartOfSpeech
     {
+        public virtual string partOfSpeech { get; set; }
 
-        public PartOfSpeech(int ID, string partOfspeech)
-        {
-            this.ID = ID;
-            this.partOfspeech = partOfspeech;
+       // public virtual List<Words> Word { get; set; } = new List<Words>();
 
-        }
+    
 
-        public int ID { get; set; }
-        public string partOfspeech { get; set; }
+
+        //public PartOfSpeech(int ID, string partOfspeech)
+        //{
+        //    this.ID = ID;
+        //    this.partOfspeech = partOfspeech;
+
+        //}
+
+        //public int ID { get; set; }
+        //public string partOfspeech { get; set; }
     }
 }
